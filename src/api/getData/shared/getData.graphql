@@ -1,12 +1,12 @@
-type getData {
-    currency_pair: String!
-    timestamp: Float
-    last: Float
+type getDataResponse {
     createdAt: String!
-    updatedAt: String
-    
+    updatedAt: String!
+    currency_pair: String!
+    last: Float!
+    timestamp: Float!
+    error: Boolean!
 }
 
-type Query{
-    getdata: getData
+type Query {
+    getData(name:String!): getDataResponse!
 }

@@ -1,4 +1,14 @@
+type getDataResponse {
+  createdAt: String!
+  updatedAt: String!
+  currency_pair: String!
+  last: Float!
+  timestamp: Float!
+  error: Boolean!
+}
+
 type Query {
+  getData(name: String!): getDataResponse!
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
 }
