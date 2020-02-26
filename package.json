@@ -6,22 +6,29 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bcrypt": "^4.0.0",
+    "class-validator": "^0.11.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
     "helmet": "^3.21.2",
     "merge-graphql-schemas": "^1.7.6",
     "morgan": "^1.9.1",
+    "mysql": "^2.18.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "typeorm": "^0.2.22"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql"
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
+    "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.6",
     "@types/helmet": "^0.0.45",
     "@types/morgan": "^1.7.37",

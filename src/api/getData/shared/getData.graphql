@@ -1,0 +1,12 @@
+type getData {
+    currency_pair: String!
+    timestamp: Float
+    last: Float
+    createdAt: String!
+    updatedAt: String
+    
+}
+
+type Query{
+    getdata: getData
+}
