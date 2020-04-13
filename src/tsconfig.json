@@ -17,16 +17,16 @@
       "noUnusedLocals": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true
+      // Decorator를 위한 metadata를 컴파일시에 내보내줍니다.
+      "emitDecoratorMetadata": true,
+      // ES7의 Decorator문법을 허용해줍니다.
+      "experimentalDecorators": true
     },
     "exclude": [
       "node_modules",
       "build",
       "scripts",
-      "acceptance-tests",
       "webpack",
-      "jest",
-      "src/setupTests.ts"
+      "jest"
     ]
 }

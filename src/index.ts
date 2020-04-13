@@ -3,6 +3,7 @@ dotenv.config();
 
 import { Options } from "graphql-yoga";
 import { createConnection } from "typeorm";
+import api from './api/api';
 import app from "./app";
 import connectionOptions from "./ormconfig";
 
@@ -18,8 +19,14 @@ const appOptions: Options = {
 
 const handleAppStart = () => console.log(`Listening on port ${PORT}`);
 
-createConnection(connectionOptions)
-  .then(() => {
-    app.start(appOptions, handleAppStart);
-  })
-  .catch(error => console.log(error));
+
+// Mysql connection [TypeORM]
+  createConnection(connectionOptions).then(async connection => {
+  await app.start(appOptions, handleAppStart);
+  
+}).catch(error => console.log(error));
+
+/**
+ * Start api.
+ */
+api("https://api.korbit.co.kr/v1/ticker/detailed/all");

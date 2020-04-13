@@ -1,13 +1,14 @@
 type KorbitDataResponse {
-  seq: Int!
-  currency_pair: String!
-  last: Float!
-  timestamp: Float!
+    seq: Int!
+    currency_pair: String!
+    last: Float!
+    timestamp: Float!
 }
 
 type Query {
-  KorbitData(currency_pair: String!): KorbitDataResponse!
+    KorbitData(currency_pair:String!): KorbitDataResponse!
 }
+
 
 type Mutation {
   inputData(currency_pair: String!, last: Float!, timestamp: Float!): KorbitDataResponse!
