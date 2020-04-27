@@ -13,9 +13,9 @@ https://api.korbit.co.kr/v1/ticker/detailed/all
     - [V] Create Database Table
     - [V] Insert Mock-up data
     
-    - [▲] Setting Environment : Typescript, QraphQL, Axios, etc...
+    - [V] Setting Environment : Typescript, QraphQL, Axios, etc...
     - [V] Calling data based on Korbit API
-    - [ ] Auto calling & inserting API data into the table (Interval: minute)
+    - [V] Auto calling & inserting API data into the table (Interval: minute)
 
 
 ### Front-end : Customer Web Page
@@ -27,7 +27,7 @@ https://api.korbit.co.kr/v1/ticker/detailed/all
         - [V] DataBox - get mock_up Database
         - [▲] Button
         - [ ] Chart
-            - ( ※상세 설계 필요 ) 
+            - ( ※need  ) 
             Internet blog data: https://lasdri.tistory.com/810
     
 
@@ -38,6 +38,6 @@ https://api.korbit.co.kr/v1/ticker/detailed/all
     - [ ] function : hourData, dayData, (monthData), etc...
     - [ ] function : showData (use hourData or dayData or ...)
     - [ ] Connect link : Currency_pair - Data
-        - [ ] DatabaseFunction : select
+        - [V] DatabaseFunction : select
         - [ ] button link : division Currency_pair (BTC, ETH, XRP, ...)
         - [ ] view chart
