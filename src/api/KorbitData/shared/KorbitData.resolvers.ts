@@ -1,4 +1,7 @@
-import { KorbitDataQueryArgs, KorbitDataResponse } from "../../../types/graph";
+import { KorbitDataCurrencyArrayResponse, KorbitDataQueryArgs, KorbitDataResponse, KorbitDataSelectionQueryArgs, KorbitDataSelectionResponse } from "../../../types/graph";
+import querySelect from "../../Query/querySelect";
+import querySelectCurrency from "../../Query/querySelectCurrency";
+
 
 /**
  * KorbitData resolvers.
@@ -9,15 +12,41 @@ const resolvers = {
     KorbitData: (_, args: KorbitDataQueryArgs): KorbitDataResponse => {
       return {
         seq:1,
-        currency_pair:`currencyPair: ${args.currency_pair}`,
+        currencyPair:`currencyPair: ${args.currencyPair}`,
         last:0,
         timestamp:0,
       };
+    },
+    KorbitDataSelection: async (_, args: KorbitDataSelectionQueryArgs): Promise<KorbitDataSelectionResponse> => {
+      return {
+        selection: await querySelect(args.getCurrencyPair, args.seq1, args.seq2)
+      };
+    },
+    KorbitDataCurrencyArray: async (_): Promise<KorbitDataCurrencyArrayResponse> =>{
+      return {
+        currencyArray: await querySelectCurrency()
+      }
     }
   },
   Mutation: {
 
   }
 };
-  
+
+/**
+ * Test Code : SelectQuery
+ */
+// const tester = (testObj: KorbitData[]) => {
+//   testObj.forEach(element => {
+//       console.log(`
+//           **********************
+//           Seq : ${element.seq}, 
+//           CurrencyPair : ${element.currencyPair}, 
+//           TimeStamp : ${element.timestamp}, 
+//           Last : ${element.last}
+//           #######################
+//       `);
+//   });
+// };
+
 export default resolvers;

@@ -17,12 +17,16 @@ class App {
 
 /**
  * Supported MiddleWare : cors, logger, helmet
+ * helmet : security middleware
+ * cors: 
+ * logger: record flow-logic
  */
   private middlewares = (): void => {
     console.log("MiddleWares Running......");
     this.app.express.use(cors());
     this.app.express.use(logger("dev"));
     this.app.express.use(helmet());
+    // this.app.express.listen()
   };
 
 }

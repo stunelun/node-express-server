@@ -21,12 +21,14 @@ const handleAppStart = () => console.log(`Listening on port ${PORT}`);
 
 
 // Mysql connection [TypeORM]
-  createConnection(connectionOptions).then(async connection => {
+createConnection(connectionOptions).then(async connection => {
   await app.start(appOptions, handleAppStart);
-  
 }).catch(error => console.log(error));
 
 /**
  * Start api.
  */
 api("https://api.korbit.co.kr/v1/ticker/detailed/all");
+// setInterval(callApi, 60000);
+
+

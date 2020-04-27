@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class KorbitData {
+export class KorbitData extends BaseEntity {
     korbitInstance: KorbitData;
 
     @PrimaryGeneratedColumn({type: "int"})
@@ -51,4 +51,11 @@ export class KorbitData {
         this.timestamp = timestamp;
         this.last = last;
     };
+
+    
+    public get value() : string {
+        return this.currencyPair;
+        
+    }
+    
 }
