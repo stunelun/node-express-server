@@ -4,7 +4,7 @@ import { KorbitData } from "../../entities/KorbitData";
 const querySelectCurrency = () => {
     return (
         getRepository(KorbitData).query(
-            `select DISTINCT currencypair from korbit_data`
+            `SELECT DISTINCT currencypair from Korbit_Data ORDER BY currencypair ASC`
         )
         .then(res => {
             const currencyArray:string[] = [];

@@ -16,6 +16,7 @@ type KorbitDataCurrencyArrayResponse {
 type Query {
     KorbitData(currencyPair:String!): KorbitDataResponse!
     KorbitDataSelection(getCurrencyPair: String!, seq1: Int!, seq2:Int!): KorbitDataSelectionResponse!
+    KorbitDataChartInfo(getCurrencyPair: String!): KorbitDataSelectionResponse!
     KorbitDataCurrencyArray: KorbitDataCurrencyArrayResponse!
 }
 

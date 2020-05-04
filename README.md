@@ -26,17 +26,16 @@ https://api.korbit.co.kr/v1/ticker/detailed/all
     - [ ] get Component
         - [V] DataBox - get mock_up Database
         - [▲] Button
-        - [ ] Chart
-            - ( ※need  ) 
+        - [▲] Chart
             Internet blog data: https://lasdri.tistory.com/810
     
 
 ### Middle Ware : Web-Back Operation Tool
-    - [ ] Construct dataLogic
+    - [V] Construct dataLogic
         - [▲] timestamp, high, low, open, close : getData => make arrayData
 
-    - [ ] function : hourData, dayData, (monthData), etc...
-    - [ ] function : showData (use hourData or dayData or ...)
+    - [▲] function : 30minData, (dayData), (monthData), etc...
+    - [▲] function : showData (use hourData or dayData or ...)
     - [ ] Connect link : Currency_pair - Data
         - [V] DatabaseFunction : select
         - [ ] button link : division Currency_pair (BTC, ETH, XRP, ...)

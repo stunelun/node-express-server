@@ -4,7 +4,7 @@ import { KorbitData } from "../../entities/KorbitData";
 import gapHourTime from '../tools/gapHourTime';
 import nowTimestamp from '../tools/nowTimestamp';
 
-const querySelect = (getCurrencyPair: string, seqNum1: number, seqNum2: number) => {
+const querySelectChartInfo = (getCurrencyPair: string) => {
     return (
         getRepository(KorbitData).find({
             where: [
@@ -12,21 +12,22 @@ const querySelect = (getCurrencyPair: string, seqNum1: number, seqNum2: number) 
                     currencyPair: getCurrencyPair,
                     timestamp: Between(gapHourTime(),nowTimestamp())
                 }
-            ],
-            order: {
-                timestamp: 'ASC'
-            },
-            take: 1
+            ]
+            // ,
+            // order: {
+            //     timestamp: 'ASC'
+            // },
+            // take: 1
         })
         .then(res => {
             // testerSelect(res);
             return res;
         })
         .catch(error => {
-            console.log(`querySelect Error: `, error);
+            console.log(`queryStart Error: `, error);
             return error;
         })
     );
 };
 
-export default querySelect;
+export default querySelectChartInfo;

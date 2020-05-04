@@ -7,9 +7,11 @@ import api from './api/api';
 import app from "./app";
 import connectionOptions from "./ormconfig";
 
+
 const PORT: number | string = process.env.PORT || 4000;
 const PLAYGROUND_ENDPOINT: string = "/playground";
 const GRAPHQL_ENDPOINT: string = "/graphql";
+
 
 const appOptions: Options = {
   port: PORT,
@@ -28,7 +30,4 @@ createConnection(connectionOptions).then(async connection => {
 /**
  * Start api.
  */
-api("https://api.korbit.co.kr/v1/ticker/detailed/all");
-// setInterval(callApi, 60000);
-
-
+setInterval(api, 60000);

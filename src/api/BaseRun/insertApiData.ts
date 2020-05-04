@@ -1,3 +1,4 @@
+import { getRepository } from "typeorm";
 import { KorbitData } from "../../entities/KorbitData";
 
 /**
@@ -11,7 +12,7 @@ const insertApiData = (apiData) => {
       const apiKeys = apiDataMap.keys();
   
       // Biz Logic : insert Query
-      apiDataMap.forEach((currencypair: string, currencyData: any) => {
+      apiDataMap.forEach(async (currencypair: string, currencyData: any) => {
         currencypair = apiKeys.next().value;
         currencyData = apiDataMap.get(currencypair);
   
@@ -29,7 +30,7 @@ const insertApiData = (apiData) => {
         kbInstance.setter(currencypair, currencyData.timestamp, currencyData.last);
   
         // insert Object data into Korbit_data Database :
-        // await getRepository(KorbitData).save(kbInstance);
+        await getRepository(KorbitData).save(kbInstance);
         
         // Log printing saved data :
         // console.log(`Insert Data info : \ncurrencyPair: ${currencypair}, timestamp: ${currencyData.timestamp}, last: ${currencyData.last}`);
