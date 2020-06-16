@@ -12,12 +12,15 @@ const PORT: number | string = process.env.PORT || 4000;
 const PLAYGROUND_ENDPOINT: string = "/playground";
 const GRAPHQL_ENDPOINT: string = "/graphql";
 
-
+/**
+ * graphQL connect Option
+ */
 const appOptions: Options = {
   port: PORT,
   playground: PLAYGROUND_ENDPOINT,
   endpoint: GRAPHQL_ENDPOINT
 };
+
 
 const handleAppStart = () => console.log(`Listening on port ${PORT}`);
 
@@ -28,6 +31,6 @@ createConnection(connectionOptions).then(async connection => {
 }).catch(error => console.log(error));
 
 /**
- * Start api.
+ * run 1 min interval
  */
 setInterval(api, 60000);

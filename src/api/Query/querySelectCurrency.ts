@@ -4,14 +4,13 @@ import { KorbitData } from "../../entities/KorbitData";
 const querySelectCurrency = () => {
     return (
         getRepository(KorbitData).query(
-            `SELECT DISTINCT currencypair from Korbit_Data ORDER BY currencypair ASC`
+            `SELECT DISTINCT currencypair from currencypairs ORDER BY currencypair ASC`
         )
         .then(res => {
             const currencyArray:string[] = [];
-            res.forEach(element => {
+            res.forEach((element: { currencypair: string; }) => {
                 currencyArray.push(element.currencypair);
             });
-            // console.log(currencyArray);
             return currencyArray;
         })
         .catch(error => {
