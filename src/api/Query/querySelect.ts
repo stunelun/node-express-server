@@ -1,16 +1,16 @@
 import { Between, getRepository } from "typeorm";
 import { KorbitData } from "../../entities/KorbitData";
 // import testerSelect from "./testerSelect";
-import gapDayTime from '../tools/gapDayTime';
-import nowTimestamp from '../tools/nowTimestamp';
+import {gapTime, nowTimestamp} from '../tools/timestampTools';
 
 const querySelect = (getCurrencyPair: string, seqNum1: number, seqNum2: number) => {
+    const nowTime = nowTimestamp();
     return (
         getRepository(KorbitData).find({
             where: [
                 {
                     currencyPair: getCurrencyPair,
-                    timestamp: Between(gapDayTime(),nowTimestamp())
+                    timestamp: Between(gapTime(nowTime),nowTime)
                 }
             ],
             order: {
