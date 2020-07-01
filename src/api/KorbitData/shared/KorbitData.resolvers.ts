@@ -1,5 +1,5 @@
-import { KorbitDataChartInfoQueryArgs, KorbitDataCurrencyArrayResponse, KorbitDataQueryArgs, KorbitDataResponse, KorbitDataSelectionQueryArgs, KorbitDataSelectionResponse } from "../../../types/graph";
-import querySelect          from "../../Query/querySelect";
+import { KorbitDataChartInfoQueryArgs, KorbitDataCurrencyArrayResponse, KorbitDataSelectionResponse } from "../../../types/graph";
+// import querySelect          from "../../Query/querySelect";
 import querySelectChartInfo from "../../Query/querySelectChartInfo";
 import querySelectCurrency  from "../../Query/querySelectCurrency";
 
@@ -10,20 +10,6 @@ import querySelectCurrency  from "../../Query/querySelectCurrency";
  */
 const resolvers = {
   Query: {
-    KorbitData: (_, args: KorbitDataQueryArgs): KorbitDataResponse => {
-      return {
-        seq:1,
-        currencyPair:`currencyPair: ${args.currencyPair}`,
-        last:0,
-        timestamp:0,
-      };
-    },
-    KorbitDataSelection: async (_, args: KorbitDataSelectionQueryArgs): Promise<KorbitDataSelectionResponse> => {
-      return {
-        selection: await querySelect(args.getCurrencyPair, args.seq1, args.seq2)
-      };
-    },
-
     KorbitDataChartInfo: async (_, args: KorbitDataChartInfoQueryArgs): Promise<KorbitDataSelectionResponse> => {
       return {
         selection: await querySelectChartInfo(args.getCurrencyPair)
