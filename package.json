@@ -20,7 +20,7 @@
     "react-scripts": "3.4.0",
     "styled-components": "^5.0.1",
     "typeorm": "^0.2.24",
-    "url-parse": "^1.4.7"
+    "url-parse": "^1.5.9"
   },
   "scripts": {
     "start": "react-scripts start",
